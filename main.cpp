@@ -45,10 +45,7 @@ int main()
         hProc = GetProcessByName(L"cs2.exe");
         Sleep(100);
     }
-
-    while (GetModuleHandleA("serverbrowser.dll") == 0);
-        system("cls");
-
+    
     auto arg = VirtualAllocEx(hProc, nullptr, 4096, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
     WriteProcessMemory(hProc, arg, pathStr.c_str(), (pathStr.length() + 1) * sizeof(wchar_t), nullptr);
 
